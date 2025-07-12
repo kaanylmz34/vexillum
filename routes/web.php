@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Home\HomeController;
 
 // Auth
 Route::prefix('auth')->name('auth.')->group(function () 
@@ -16,3 +17,6 @@ Route::prefix('auth')->name('auth.')->group(function ()
     // Auth -> Logout
     Route::post('/logout', [LogoutController::class, 'logout'])->middleware('auth')->name('logout'); 
 });
+
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
